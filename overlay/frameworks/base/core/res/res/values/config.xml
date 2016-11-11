@@ -258,7 +258,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+    <!--integer name="config_deviceHardwareKeys">83</integer-->
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -272,7 +272,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">64</integer>
+    <!--integer name="config_deviceHardwareWakeKeys">64</integer-->
 
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
@@ -284,7 +284,7 @@
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnHomeBehavior">3</integer>
+    <!--integer name="config_longPressOnHomeBehavior">3</integer-->
 
     <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
@@ -296,7 +296,7 @@
          This needs to match the constants in
          services/core/java/com/android/server/policy/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnAppSwitchBehavior">1</integer>
+    <!--integer name="config_longPressOnAppSwitchBehavior">1</integer-->
 
     <!-- Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
@@ -354,4 +354,17 @@
         <item>"/system/framework/arm64/boot.oat"</item>
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
    </string-array>
+    <integer name="config_volte_replacement_rat">14</integer>
+
+    <!-- Flag specifying whether VoLTE is available on device -->
+    <bool name="config_device_volte_available">true</bool>
+
+    <!-- Flag specifying whether VoLTE should be available for carrier: independent of
+         carrier provisioning. If false: hard disabled. If true: then depends on carrier
+         provisioning, availability etc -->
+    <bool name="config_carrier_volte_available">true</bool>
+
+    <!-- Flag specifying whether VoLTE availability is based on provisioning -->
+    <bool name="config_carrier_volte_provisioned">true</bool>
+
 </resources>

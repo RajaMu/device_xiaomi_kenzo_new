@@ -45,7 +45,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8952
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.selinux=permissive androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x00000100
@@ -54,7 +54,7 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8956
-TARGET_KERNEL_CONFIG := cyanogenmod_kenzo_defconfig
+TARGET_KERNEL_CONFIG := exodus_kenzo_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # ANT+
@@ -170,10 +170,9 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
 # Qualcomm
-BOARD_USES_QCOM_HARDWARE := false
-BOARD_USES_QC_TIME_SERVICES := false
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -202,5 +201,8 @@ TARGET_USES_QCOM_WCNSS_QMI  := true
 WIFI_DRIVER_FW_PATH_AP      := "ap"
 WIFI_DRIVER_FW_PATH_STA     := "sta"
 
+include device/qcom/common/common.mk
+
 # inherit from the proprietary version
 -include vendor/xiaomi/kenzo/BoardConfigVendor.mk
+
